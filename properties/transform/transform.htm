@@ -105,9 +105,9 @@
 				<dt><a href="#scale">scale()</a>：</dt>
 				<dd>指定对象的2D scale（2D缩放）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认取第一个参数的值</dd>
 				<dt><a href="#scalex">scalex()</a>：</dt>
-				<dd>指定对象X轴的（水平方向）缩放</dd>
+				<dd>指定对象X轴的（水平方向）缩放，scaleX(-1) 即实现水平翻转</dd>
 				<dt><a href="#scaley">scaley()</a>：</dt>
-				<dd>指定对象Y轴的（垂直方向）缩放</dd>
+				<dd>指定对象Y轴的（垂直方向）缩放，scaleY(-1) 即实现垂直翻转</dd>
 				<dt><a href="#skew">skew()</a>：</dt>
 				<dd>指定对象skew transformation（斜切扭曲）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0</dd>
 				<dt><a href="#skewx">skewx()</a>：</dt>
@@ -227,6 +227,12 @@ h1{clear:both;padding-top:10px;font-size:16px;font-family:Arial;}
 .test .rotate2{-moz-transform:rotate(5deg);-webkit-transform:rotate(5deg);-ms-transform:rotate(5deg);transform:rotate(5deg);}
 .test .scale{-moz-transform:scale(.8);-webkit-transform:scale(.8);-ms-transform:scale(.8);transform:scale(.8);}
 .test .scale2{-moz-transform:scale(1.2);-webkit-transform:scale(1.2);-ms-transform:scale(1.2);transform:scale(1.2);}
+.test .flipx{-moz-transform:scaleX(-1);-webkit-transform:scaleX(-1);-o-transform:scaleX(-1);-ms-transform:scaleX(-1);transform:scaleX(-1);}
+.test .flipy{-moz-transform:scaleY(-1);-webkit-transform:scaleY(-1);-o-transform:scaleY(-1);-ms-transform:scaleY(-1);transform:scaleY(-1);}
+.test .flipx,
+.test .flipy{
+	font-size: 40px;
+}
 .test .skew{-moz-transform:skew(-5deg);-webkit-transform:skew(-5deg);-ms-transform:skew(-5deg);transform:skew(-5deg);}
 .test .skew2{-moz-transform:skew(-5deg,-5deg);-webkit-transform:skew(-5deg,-5deg);-ms-transform:skew(-5deg,-5deg);transform:skew(-5deg,-5deg);}
 </style>
@@ -275,6 +281,15 @@ h1{clear:both;padding-top:10px;font-size:16px;font-family:Arial;}
 	</li>
 	<li class="scale2">
 		<p>transform:scale(1.2)</p>
+	</li>
+</ul>
+<h1>缩放实现翻转：scaleX(-1) 水平翻转，scaleY(-1) 垂直翻转</h1>
+<ul class="test">
+	<li>
+		<p class="flipx">X_TEST</p>
+	</li>
+	<li>
+		<p class="flipy">Y_TEST</p>
 	</li>
 </ul>
 <h1>扭曲：skew()</h1>
