@@ -225,6 +225,49 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
 #box3 li:nth-child(1){-webkit-flex:1 1 400px;flex:1 1 400px;}
 #box3 li:nth-child(2){-webkit-flex:1 2 400px;flex:1 2 400px;}
 #box3 li:nth-child(3){-webkit-flex:1 2 400px;flex:1 2 400px;}
+
+.flex-grid{
+  display: flex;
+  list-style: none;
+}
+.flex-grid-cell {
+  flex: 1;
+}
+.flex-grid-cell.u-full {
+  flex: 0 0 100%;
+}
+.flex-grid-cell.u-1of2 {
+  flex: 0 0 50%;
+}
+.flex-grid-cell.u-1of3 {
+  flex: 0 0 33.3333%;
+}
+.flex-grid-cell.u-1of4 {
+  flex: 0 0 25%;
+}
+.flex-grid-cell.u-1of5 {
+  flex: 0 0 20%;
+}
+.hidden{ display: none}
+
+.flex{
+  display: flex;
+}
+.flex__item{
+  flex: 1;
+}
+.placeholder {
+  margin: 5px;
+  padding: 0 10px;
+  background-color: #ebebeb;
+  height: 2.3em;
+  line-height: 2.3em;
+  text-align: center;
+  color: #cfcfcf
+}
+.placeholder:before{
+  content: 'Flex';
+}
 </style>
 </head>
 <body>
@@ -247,6 +290,50 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
 	<li>flex:1 2 400px;</li>
 	<li>flex:1 2 400px;</li>
 </ul>
+
+<h4>1:1:2 1:3 弹性实现</h4>
+<ul class="box flex-grid">
+  <li class="flex-grid-cell u-1of4">25%</li>
+  <li class="flex-grid-cell u-1of4">25%</li>
+  <li class="flex-grid-cell">50%</li>
+</ul>
+<ul class="box flex-grid">
+  <li class="flex-grid-cell u-1of4 hidden">0</li>
+  <li class="flex-grid-cell u-1of4">25%</li>
+  <li class="flex-grid-cell">75%</li>
+</ul>
+
+<h4>flex 弹性布局：</h4>
+<div class="example">
+  <div class="flex">
+    <div class="flex__item"><div class="placeholder"></div></div>
+  </div>
+  <div class="flex">
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+  </div>
+  <div class="flex">
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+  </div>
+  <div class="flex">
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+  </div>
+  <div class="flex">
+    <div>
+      <div class="placeholder"></div>
+    </div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div>
+      <div class="placeholder"></div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
 			</textarea>
@@ -256,7 +343,7 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
 	<section id="editime" class="g-mod g-attr">
 		<h2 class="tit">本页最后更新时间：</h2>
 		<div class="cont">
-			2015.7.29
+			2017.09.22
 		</div>
 	</section>
 </section>
