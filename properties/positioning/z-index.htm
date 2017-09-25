@@ -178,6 +178,11 @@ p {
 <title>z-index_CSS参考手册_web前端开发参考手册系列</title>
 <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
 <style>
+.pr{
+	position: relative;
+	width: 300px;
+	height: 300px;
+}
 .z1,
 .z2,
 .z3 {
@@ -197,6 +202,8 @@ p {
 	top: 30px;
 	left: 30px;
 	background: #C00;
+	opacity: 0.9;
+	filter: opacity(90);
 }
 .z3 {
 	z-index: 3;
@@ -207,9 +214,19 @@ p {
 </style>
 </head>
 <body>
+<div class="pr">
 <div class="z1">z-index:1</div>
 <div class="z2">z-index:2</div>
 <div class="z3">z-index:3</div>
+</div>
+
+<div class="pr">
+<div class="z1">
+	<span>z-index:1</span>
+	<div class="z3">z-index:3</div>
+</div>
+<div class="z2">z-index:2</div>
+</div>
 </body>
 </html>
 			</textarea>
