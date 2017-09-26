@@ -226,6 +226,7 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
 #box3 li:nth-child(2){-webkit-flex:1 2 400px;flex:1 2 400px;}
 #box3 li:nth-child(3){-webkit-flex:1 2 400px;flex:1 2 400px;}
 
+
 .flex-grid{
   display: flex;
   list-style: none;
@@ -250,6 +251,28 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
 }
 .hidden{ display: none}
 
+
+.parent {
+  width: 260px;
+  height: 150px;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+.child {
+  box-sizing: border-box;
+  flex: 0 0 20%;
+  height: 50px;
+  border: 1px solid red;
+}
+.parent.r1 {
+	justify-content: space-around;
+	min-width: 20%;
+}
+.parent.r3 .child { flex: 0 0 33.333%; }
+.parent.r4 .child { flex: 0 0 25%; }
+.parent.r5 .child { flex: 0 0 20%; }
+
 .flex{
   display: flex;
 }
@@ -270,7 +293,7 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
 }
 </style>
 </head>
-<body>
+<p>
 <h1>flex示例：</h1>
 
 <ul id="box" class="box">
@@ -302,6 +325,66 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
   <li class="flex-grid-cell u-1of4">25%</li>
   <li class="flex-grid-cell">75%</li>
 </ul>
+
+<h4>流式布局 自动分行</h4>
+<p>普通流式布局，flex-flow: row wrap; 自动换行即可</p>
+<ul class="box parent">
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+</ul>
+<ul class="box parent">
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+</ul>
+<p>增强实现，小于5个一行自适应，6==3、3；7==4、3；8==4、4；9==5、4；10==5、5</p>
+<ul class="box parent r1">
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+</ul>
+<ul class="box parent r3">
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+</ul>
+<ul class="box parent r4">
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+</ul>
+<ul class="box parent r5">
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+</ul>
+
 
 <h4>flex 弹性布局：</h4>
 <div class="example">

@@ -65,7 +65,6 @@ Global.folding = function(s){
   });
 };
 
-debugger
 //取得标识里定位data位置的rel和标识着此项信息的name
 (function(id){
   var tag = $(id);
