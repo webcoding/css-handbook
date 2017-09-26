@@ -177,16 +177,16 @@ a.btn-delete-selected  { background-position:-66px -33px;}
 
 <p>多类选择符实现 <small>只需要4个状态class</small></p>
 <p class="operpanel multiclass">
-    <a href="javascript:;" class="btn-publish"></a>
-    <a href="javascript:;" class="btn-edit   "></a>
-    <a href="javascript:;" class="btn-delete "></a>
+	<a href="javascript:;" class="btn-publish"></a>
+	<a href="javascript:;" class="btn-edit   "></a>
+	<a href="javascript:;" class="btn-delete "></a>
 </p>
 
 <p>常规实现 <small>需要6个状态class才可以</small></p>
 <p class="operpanel general">
-    <a href="javascript:;" class="btn-publish"></a>
-    <a href="javascript:;" class="btn-edit   "></a>
-    <a href="javascript:;" class="btn-delete "></a>
+	<a href="javascript:;" class="btn-publish"></a>
+	<a href="javascript:;" class="btn-edit   "></a>
+	<a href="javascript:;" class="btn-delete "></a>
 </p>
 <p>不仅样式实现上复杂了，实际在使用的js代码逻辑上也复杂了N倍，所以高级的写法不仅仅是省力一点点，而是方便太多了。多类选择符不被IE6支持，其他浏览器支持良好。</p>
 
@@ -201,22 +201,22 @@ a.btn-delete-selected  { background-position:-66px -33px;}
 
 //依赖jquery.js
 $(function(){
-    //多类选择符实现
-    $(".multiclass a").bind('click',function(){
-            $(this).addClass("selected").siblings().removeClass("selected");
-        }
-    )
+	//多类选择符实现
+	$(".multiclass a").bind('click',function(){
+			$(this).addClass("selected").siblings().removeClass("selected");
+		}
+	)
 
-    //常规实现
-    var prev = null;
-    $(".general a").bind('click',function(){
-        if(prev!=null && prev!=this){
-            //console.log($(prev).attr("class").split(" ")[0]);
-            $(prev).removeClass($(prev).attr("class").split(" ")[0] + "-selected");
-        }
-        $(this).toggleClass($(this).attr("class").split(" ")[0] + "-selected");
-        prev = this;    // 这样可以使用$(prev)记录上一步操作的选择器（比下面的添加标记class高效）
-    })
+	//常规实现
+	var prev = null;
+	$(".general a").bind('click',function(){
+		if(prev!=null && prev!=this){
+			//console.log($(prev).attr("class").split(" ")[0]);
+			$(prev).removeClass($(prev).attr("class").split(" ")[0] + "-selected");
+		}
+		$(this).toggleClass($(this).attr("class").split(" ")[0] + "-selected");
+		prev = this;    // 这样可以使用$(prev)记录上一步操作的选择器（比下面的添加标记class高效）
+	})
 });
 
 </script>
