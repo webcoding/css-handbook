@@ -49,30 +49,30 @@
 </header>
 <section id="bd">
 	<section id="syntax" class="g-mod g-attr">
-		<h2 class="tit">语法：</h2>
+		<h2 class="tit">语法: </h2>
 		<div class="cont">
-			<p><strong>flex</strong>：none | &lt;' <a href="flex-grow.htm">flex-grow</a> '&gt; &lt;' <a href="flex-shrink.htm">flex-shrink</a> &gt;'? || &lt;' <a href="flex-basis.htm">flex-basis</a> '&gt;</p>
-			<p><strong>默认值</strong>：<mark class="defaultvalue">看各分拆属性</mark></p>
-			<p><strong>适用于</strong>：flex子项</p>
-			<p><strong>继承性</strong>：无</p>
-			<p><strong>动画性</strong>：否</p>
-			<p><strong>计算值</strong>：看各分拆属性</p>
+			<p><strong>flex</strong>: none | &lt;' <a href="flex-grow.htm">flex-grow</a> '&gt; &lt;' <a href="flex-shrink.htm">flex-shrink</a> &gt;'? || &lt;' <a href="flex-basis.htm">flex-basis</a> '&gt;</p>
+			<p><strong>默认值</strong>: <mark class="defaultvalue">看各分拆属性</mark></p>
+			<p><strong>适用于</strong>: flex子项</p>
+			<p><strong>继承性</strong>: 无</p>
+			<p><strong>动画性</strong>: 否</p>
+			<p><strong>计算值</strong>: 看各分拆属性</p>
 		</div>
 	</section>
 	<section id="value" class="g-mod g-attr">
-		<h2 class="tit">取值：</h2>
+		<h2 class="tit">取值: </h2>
 		<div class="cont">
 			<dl>
-				<dt>none：</dt>
+				<dt>none: </dt>
 				<dd>none关键字的计算值为: 0 0 auto</dd>
-				<dt>&lt;' <a href="flex-grow.htm">flex-grow</a> '&gt;：</dt>
+				<dt>&lt;' <a href="flex-grow.htm">flex-grow</a> '&gt;: </dt>
 				<dd>用来指定扩展比率，即剩余空间是正值时此「flex子项」相对于「flex容器」里其他「flex子项」能分配到空间比例。<br />
 					在「flex」属性中该值如果被省略则默认为「1」</dd>
-				<dt>&lt;' <a href="flex-shrink.htm">flex-shrink</a> '&gt;：</dt>
+				<dt>&lt;' <a href="flex-shrink.htm">flex-shrink</a> '&gt;: </dt>
 				<dd>用来指定收缩比率，即剩余空间是负值时此「flex子项」相对于「flex容器」里其他「flex子项」能收缩的空间比例。<br />
 					在收缩的时候收缩比率会以伸缩基准值加权<br />
 					在「flex」属性中该值如果被省略则默认为「1」</dd>
-				<dt>&lt;' <a href="flex-basis.htm">flex-basis</a> '&gt;：</dt>
+				<dt>&lt;' <a href="flex-basis.htm">flex-basis</a> '&gt;: </dt>
 				<dd>用来指定伸缩基准值，即在根据伸缩比率计算出剩余空间的分布之前，「flex子项」长度的起始数值。<br />
 					在「flex」属性中该值如果被省略则默认为「0%」<br />
 					在「flex」属性中该值如果被指定为「auto」，则伸缩基准值的计算值是自身的 &lt;' <a href="../dimension/width.htm">width</a> '&gt; 设置，如果自身的宽度没有定义，则长度取决于内容。
@@ -81,7 +81,7 @@
 		</div>
 	</section>
 	<section id="intro" class="g-mod g-attr">
-		<h2 class="tit">说明：</h2>
+		<h2 class="tit">说明: </h2>
 		<div class="cont">
 			<strong>复合属性。设置或检索弹性盒模型对象的子元素如何分配空间。</strong>
 			<ul>
@@ -143,7 +143,7 @@
 		</div>
 	</section>
 	<section id="compatible" class="g-mod g-attr">
-		<h2 class="tit">兼容性：</h2>
+		<h2 class="tit">兼容性: </h2>
 		<div class="cont">
 			<ul class="support-type">
 				<li><span class="support">浅绿</span> = 支持</li>
@@ -197,7 +197,7 @@
 		</div>
 	</section>
 	<section id="example" class="g-mod g-attr">
-		<h2 class="tit">示例：</h2>
+		<h2 class="tit">示例: </h2>
 		<div class="cont">
 			<textarea cols="90" rows="10">
 <!DOCTYPE html>
@@ -225,9 +225,75 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
 #box3 li:nth-child(1){-webkit-flex:1 1 400px;flex:1 1 400px;}
 #box3 li:nth-child(2){-webkit-flex:1 2 400px;flex:1 2 400px;}
 #box3 li:nth-child(3){-webkit-flex:1 2 400px;flex:1 2 400px;}
+
+
+.flex-grid{
+  display: flex;
+  list-style: none;
+}
+.flex-grid-cell {
+  flex: 1;
+}
+.flex-grid-cell.u-full {
+  flex: 0 0 100%;
+}
+.flex-grid-cell.u-1of2 {
+  flex: 0 0 50%;
+}
+.flex-grid-cell.u-1of3 {
+  flex: 0 0 33.3333%;
+}
+.flex-grid-cell.u-1of4 {
+  flex: 0 0 25%;
+}
+.flex-grid-cell.u-1of5 {
+  flex: 0 0 20%;
+}
+.hidden{ display: none}
+
+
+.parent {
+  width: 260px;
+  height: 150px;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+.child {
+  box-sizing: border-box;
+  flex: 0 0 20%;
+  height: 50px;
+  border: 1px solid red;
+}
+.parent.r1 {
+	justify-content: space-around;
+	min-width: 20%;
+}
+.parent.r3 .child { flex: 0 0 33.333%; }
+.parent.r4 .child { flex: 0 0 25%; }
+.parent.r5 .child { flex: 0 0 20%; }
+
+.flex{
+  display: flex;
+}
+.flex__item{
+  flex: 1;
+}
+.placeholder {
+  margin: 5px;
+  padding: 0 10px;
+  background-color: #ebebeb;
+  height: 2.3em;
+  line-height: 2.3em;
+  text-align: center;
+  color: #cfcfcf
+}
+.placeholder:before{
+  content: 'Flex';
+}
 </style>
 </head>
-<body>
+<p>
 <h1>flex示例：</h1>
 
 <ul id="box" class="box">
@@ -247,6 +313,110 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
 	<li>flex:1 2 400px;</li>
 	<li>flex:1 2 400px;</li>
 </ul>
+
+<h4>1:1:2 1:3自适应布局</h4>
+<ul class="box flex-grid">
+  <li class="flex-grid-cell u-1of4">25%</li>
+  <li class="flex-grid-cell u-1of4">25%</li>
+  <li class="flex-grid-cell">50%</li>
+</ul>
+<ul class="box flex-grid">
+  <li class="flex-grid-cell u-1of4 hidden">0</li>
+  <li class="flex-grid-cell u-1of4">25%</li>
+  <li class="flex-grid-cell">75%</li>
+</ul>
+
+<h4>流式布局 自动分行</h4>
+<p>普通流式布局，flex-flow: row wrap; 自动换行即可</p>
+<ul class="box parent">
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+</ul>
+<ul class="box parent">
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+  <li class="child">item</li>
+</ul>
+<p>增强实现，小于5个一行自适应，6==3、3；7==4、3；8==4、4；9==5、4；10==5、5</p>
+<ul class="box parent r1">
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+</ul>
+<ul class="box parent r3">
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+</ul>
+<ul class="box parent r4">
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+</ul>
+<ul class="box parent r5">
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+	<li class="child">item</li>
+</ul>
+
+
+<h4>flex 弹性布局：</h4>
+<div class="example">
+  <div class="flex">
+    <div class="flex__item"><div class="placeholder"></div></div>
+  </div>
+  <div class="flex">
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+  </div>
+  <div class="flex">
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+  </div>
+  <div class="flex">
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+  </div>
+  <div class="flex">
+    <div>
+      <div class="placeholder"></div>
+    </div>
+    <div class="flex__item"><div class="placeholder"></div></div>
+    <div>
+      <div class="placeholder"></div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
 			</textarea>
@@ -254,9 +424,9 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
 		</div>
 	</section>
 	<section id="editime" class="g-mod g-attr">
-		<h2 class="tit">本页最后更新时间：</h2>
+		<h2 class="tit">本页最后更新时间: </h2>
 		<div class="cont">
-			2015.7.29
+			2017.09.22
 		</div>
 	</section>
 </section>
