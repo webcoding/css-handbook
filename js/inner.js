@@ -353,6 +353,10 @@ if (!Global.isLocal && Global.name) {
           'justify-content' : [],
           'order' : []
         },
+        'grid' : {
+          'index' : ['grid'],
+          'grid' : ['grid'],
+        },
         'transform' : {
           'index' : ['变换(Transform)','其它变换属性参考'],
           'transform' : [],
