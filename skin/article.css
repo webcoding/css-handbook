@@ -41,7 +41,7 @@ ol.gitem{list-style-type:decimal;}
 .gquote{margin:10px;border:1px solid #C3E1FF;}
 .gquote-tit{padding:3px 10px;background:#DDEEFF;}
 .gquote-cont{zoom:1;overflow:hidden;padding:10px;border-top:1px solid #C3E1FF;}
-.gquote-cont .img{float:left;margin-right:15px;text-align:center;}
+.gquote-cont .img{float:left;margin:0 15px 0 0;text-align:center;}
 .gquote-cont .code{zoom:1;overflow:hidden;}
 .gquote-cont code,
 .gquote-cont xmp{margin:0;font-family:Consolas, "Liberation Mono", Menlo, Courier, monospace;}
@@ -136,6 +136,7 @@ ol.gitem{list-style-type:decimal;}
 #syntax ins:after,#syntax del:after{position:relative;top:-6px;margin-left:3px;padding:0 3px;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.3);color:#fff;content:attr(title);font-size:10px;text-transform:lowercase;}
 #syntax ins[title^="css"]:after{background-color:#f60;}
 #syntax del[title^="ie"]:after{background-color:#999;}
+#syntax .sharing{padding:10px;}
 /* module: value */
 #value dl{zoom:1;overflow:hidden;}
 #value dt{clear:left;float:left;font-weight:bold;}
