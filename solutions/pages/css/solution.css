@@ -1,0 +1,639 @@
+@charset "utf-8";
+/*!
+ * solution style
+**/
+.fl{float:left}.fr{float:right}.fl,.fr{display:inline}
+.wrap,.bc{margin-left:auto; margin-right:auto}.tc{text-align:center}
+.hor li{float:left;display:inline;}
+.wrap{ width:980px;}
+small{ font-weight:normal}
+.none,.none li{margin:0;padding:0;list-style-type:none}
+.a2row,.a3row,.a4row,.a5row{ overflow:hidden;*zoom:1; margin-right:-2px; padding-top:2px; margin-bottom:10px;}
+.a2row li,.a3row li,.a4row li,.a5row li{ float:left; display:inline;}
+.a2row li{ width:49.5%}.a3row li{ width:33.25%}.a4row li{ width:24.9%}.a5row li{ width:19.9%}
+.auto a{ display:block; white-space:nowrap;overflow:hidden; text-align:left;}
+.a2row a,.a3row a{margin-right:10px;text-overflow:ellipsis;}
+body .hide{display:none;}
+/* 测试使用 */
+/* Base class */
+#guide{width:300px;padding:10px 15px 10px 10px;background:#eee;border:1px solid #bbb;position:fixed;right:10px;top:18px; z-index:100;}
+#shortcut li{color:#888;padding:2px 0;font:italic 14px/1.4 Courier, 'Courier New';}
+#shortcut a{color:#464646;font-style:normal;text-shadow:1px 1px 2px #fff;}
+#shortcut ul{ padding-left:1.2em}
+.note{font-size:13px;color:#555}
+.note strong:first-child{color:red}
+.browser{padding:5px 10px;background:#eee;}
+h1,h2,h3{/*padding-top:0.5em;*/line-height:1.2}
+h4{margin-bottom:1em}
+body > h1:first-child{padding-top:0;}
+body{padding-bottom:30px;}
+.red{color:#f00}
+.topic,.notopic{
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+.topic{
+	display:inline-block;
+	padding:1px 5px;
+	border-radius:8px 3px;
+	background-color:#00599B;
+	color:#fff;
+	text-shadow:0 0 5px rgba(253,179,3,.5);
+}
+.topic:hover{
+	border-radius:3px 8px;
+	box-shadow:0 0 5px rgba(0,0,0,.4);
+	background-color:#0090D2;
+	text-decoration:none;
+}
+.notopic,.notopic:hover{
+	background-color:#ddd;
+	color:#aaa;
+	text-shadow:0 0 5px rgba(0,0,0,.1);
+	cursor:default;
+}
+
+/* Code examples
+-------------------------------------------------- */
+.demo {
+  position: relative;
+  z-index:0;
+  margin: 15px 0;
+  padding: 40px 20px 20px;
+  *padding-top: 19px;
+  background: #eee;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  /* overflow:hidden; */
+}
+.demo + .demo{margin-top:-15px;}
+.demo p:first-child,.demo h2:first-child,.demo h3:first-child,.demo h4:first-child{margin-top:0;}
+
+/* Echo out a label for the example */
+.demo:after {
+	content: "Example";
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	padding: 3px 7px;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	color: #9da0a4;
+	-webkit-border-radius: 4px 0 4px 0;
+	 -moz-border-radius: 4px 0 4px 0;
+		  border-radius: 4px 0 4px 0;
+}
+.plugin,.white-demo{background:#fff}
+.dark-demo{background: url(images/low_contrast_linen.png) !important;}
+.dark-demo::after{background-color: #666;border: 1px solid #888;color: #fff;}
+.black-demo{background:#000 !important;color:#fff}
+.black-demo::after{background-color: #333;border: 1px solid #666;color: #fff;}
+
+
+.demo + .prettyprint {
+	margin-top: -20px;
+	padding-top: 15px;
+}
+
+/* Tweak examples
+------------------------- */
+.demo > p:last-child {
+  margin-bottom: 0;
+}
+.demo .table,
+.demo .progress,
+.demo .well,
+.demo .alert,
+.demo .hero-unit,
+.demo .pagination,
+.demo .navbar,
+.demo > .nav,
+.demo blockquote {
+  margin-bottom: 5px;
+}
+.demo .pagination {
+  margin-top: 0;
+}
+/* Code pre */
+
+code,
+pre {
+  padding: 0 3px 2px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 12px;
+  color: #333333;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+code {
+  padding: 2px 4px;
+  color: #d14;
+  white-space: nowrap;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+}
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin:5px 0 10px;
+  font-size: 13px;
+  line-height: 20px;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+pre.prettyprint {
+  margin-bottom: 20px;
+}
+
+pre code {
+  padding: 0;
+  color: inherit;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border: 0;
+}
+pre.inblock{border:none;margin:0;padding:0;background:none}
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+/* Quotes for two levels of nested quotations */
+q {
+	quotes: '“' '”' '‘' '’';
+}
+ /* extra content definitions for pre-2011 WebKit */
+q:before {
+	content: '“';
+	content: open-quote;
+}
+q:after {
+	content: '”';
+	content: close-quote;
+}
+q q:before {
+	content: '‘';
+	content: open-quote;
+}
+q q:after {
+	content: '’';
+	content: close-quote;
+}
+  /* q in blockquote */
+blockquote q:before {
+	content: '‘';
+	content: open-quote;
+}
+blockquote q:after {
+	content: '’';
+	content: close-quote;
+}
+blockquote q q:before {
+	content: '“';
+	content: open-quote;
+}
+blockquote q q:after {
+	content: '”';
+	content: close-quote;
+}
+/* hanging opening quote */
+blockquote:before {
+	display: block;
+	height: 0;
+	content: "“";
+	margin-left: -.65em; font: italic 400%/1 Cochin,Georgia,"Times New Roman", serif;
+	color: #999;
+}
+blockquote{white-space:pre-wrap;word-wrap:break-word;font-size:12px;display:block;line-height:1.6em;margin:0.45em 0 0.45em 2em;}
+blockquote{background:#F4F5F7;white-space:normal;min-width:574px;padding:8px 6px 8px 40px;border:1px dashed #ccc;}
+blockquote p{margin:5px 0}
+table.info{border: 1px solid #888;border-collapse:collapse;font-family:Arial,Helvetica;margin-bottom:1em}
+table.info pre{background-color:transparent;margin:0;padding:0;width:auto;}
+table.info th{background-color:#CCC;border: 1px solid #888;padding:5px 15px 5px 10px;text-align:left;vertical-align: baseline;}
+table.info td{background-color:#EFEFEF;border:1px solid #AAA;padding:5px 15px 5px 10px;vertical-align:text-top;}
+table.info p{margin:0 0 2px;}
+table.info ul,table.info li{list-style-type:none;margin:0;padding:0;}
+table.info td em{color:#00F;font-weight:normal;}
+table.info .table_value{color: #0F93D2;}
+
+dt,dd{margin-bottom:5px;}
+dt{font-weight:bold;margin-top:10px;}dd{margin-left:0}
+p.line,.dl-line{padding-left:2em;}
+.dl-line {*zoom: 1;}
+.dl-line dt{float:left;margin:0;}
+.dl-line dd{margin:0;}
+
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+
+/* 垂直居中 */
+.middle-item,.middle-full{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;}
+.middle-full{height:100%;width:0;overflow:hidden;font-size:0;}
+
+
+/*
+	@ 名称: 解决 <select /> z-index 太高问题
+	@ 描述: 浮层被 select 穿透，是最常见的 z-index bug
+	@ 例子：
+		<div class="as-selectmask" style="background:#FF3366;">
+			内容<br/>
+		<!--[if lt IE 7]><iframe src="javascript:'';"></iframe><![endif]-->
+		</div>
+*/
+
+.as-selectmask {
+	position: absolute;
+	left:0;
+	top:0;
+	z-index: 10;
+	overflow: hidden;
+	width: 33em;
+}
+.as-selectmask iframe {
+	position: absolute;
+	top: 0; 
+	left: 0; 
+	z-index: -1;
+	border:none;
+	filter: mask();
+	width: 3000px; /* for any big value */
+	height: 3000px /* for any big value */
+}
+
+
+
+
+
+/*
+	@ 名称: 去除虚线框
+	@ 描述: 去除作为焦点的按钮的虚线框
+	@ 用法: 把css引入到
+	@ 例子: IE 需要在标签中添加 hidefocus 属性，值可以为空，如:
+	
+		<input href="#" hidefocus value="确定" type="button" />
+		
+		<a /> 标签同理。
+*/
+
+
+/* hack for Firefox */
+input[type=submit]::-moz-focus-inner,input[type=button]::-moz-focus-inner{    
+	border : 0px; 
+}
+
+/* 不要随便去掉虚线框 */
+input[type=submit]:focus, input[type=button]:focus{      
+	outline : none;  
+}
+
+
+
+
+
+/*
+	@ 名称: 翻转90度
+	@ 用法: 添加 .as-rotate, 默认为顺时针旋转90度, 逆时针翻转需添加 .as-rotate-90ccw
+	@ 用法: 
+  默认: <span class="as-rotate as-rotate-90">顺时针转一下</span>
+		<span class="as-rotate as-rotate-90cw">顺时针转一下</span>
+		<span class="as-rotate as-rotate-90ccw">逆时针转一下</span>
+            
+*/
+
+.as-rotate{
+	*zoom:1;
+}
+
+/* for inline elements */
+span.as-rotate, em.as-rotate, cite.as-rotate, strong.as-rotate, abbr.as-rotate, li.as-rotate{
+	display:inline-block;
+}
+
+
+/* 顺时针 */
+.as-rotate-90cw, .as-rotate-90{
+    -webkit-transform: rotate(90deg);   
+    -moz-transform: rotate(90deg);  
+    -o-transform: rotate(90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);  
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";  
+    transform: rotate(90deg);
+}
+
+/* 逆时针 */
+.as-rotate-90ccw{
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotae(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);  
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)"; 
+    transform: rotate(-90deg);
+}
+
+
+
+
+
+/*
+	@ 名称: position:fixed
+	@ 用法：添加class
+	@ 注意:
+        * 如果需要多个方向的固定位置，比如 top + right，需要加两个 class
+        * 如果加了.fixed-top, 那么就别给这个元素加 top 属性的值
+        * 为了不出现异常，这个只作为套用。比如要top:30px 的时候，请在 .fixed-top 的子元素内设置
+        * 由于我们有打包，所以，改solution是可以的，但这是强烈不推荐的，因为不利于维护
+*/
+
+.fixed{
+    position:fixed;
+}
+
+/* 相当于正常的 position:fixed; top:0;  */
+.fixed-top {
+    bottom:auto;
+    top:0;
+    _bottom:auto;
+    _top:expression(eval(document.documentElement.scrollTop));
+}
+
+/* 相当于正常的 position:fixed;bottom:0px; */
+.fixed-bottom {
+    bottom:0;
+    top:auto;
+    _bottom:auto;
+    _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+}
+
+/* 相当于正常的 position:fixed;left:0px; */
+.fixed-left {
+    left:0;
+    _position:absolute;
+    right:auto;
+    _left:expression(eval(document.documentElement.scrollLeft));
+}
+
+/* 相当于正常的 position:fixed;right:0; */
+.fixed-right {
+    right:0;
+    left:auto;
+    _right:auto;
+    _left:expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-this.offsetWidth)-(parseInt(this.currentStyle.marginLeft,10)||0)-(parseInt(this.currentStyle.marginRight,10)||0));
+}
+
+/* 当不是 https 时，可以把 # 换成 about:blank 以提升效率 */
+html,html body {
+    _background-image:url('about:blank');
+    _background-attachment:fixed;
+}
+
+/* hack for ie6 */
+.fixed-top,.fixed-right,.fixed-bottom,.fixed-left {
+    _position:absolute;
+}
+
+
+
+/*
+  @ 名称: 1像素圆角
+  @ 描述: 需要自己设置宽度，或者高度，否则会随内容自适应
+  @ 用法: 
+    最外层：.as-rc 
+    内容层：.as-rc-cnt
+    鼠标经过：.as-rc-hover
+*/
+
+/* base */
+.as-rc{
+    display:inline-block;vertical-align: middle;
+    border-left:1px solid #ddd;border-right:1px solid #ddd;  /* 可重设 */
+}
+
+/* 
+  不要直接给 BOTTON | INPUT[type=submit[button]] 添加边框
+  这会引发 IE 的 1px 的黑边 bug
+  Note: 一般不要把 input 作为.as-rc-cnt 层 
+ */
+.as-rc-cnt{
+    float:left;position: relative;
+    border-top: 1px solid #ddd;border-bottom:1px solid #ddd; /* 可重设 */
+    margin:-1px 0;
+}
+
+/* HACK for ie6 7 */
+div.as-rc, p.as-rc, h2.as-rc, h3.as-rc, h4.as-rc, h5.as-rc, h6.as-rc, ul.as-rc, ol.as-rc{
+    *display: inline;
+}
+
+/* 鼠标经过 */
+.as-rc-hover, .as-rc-hover .as-rc-cnt, .as-rc:hover, .as-rc:hover .as-rc-cnt{
+    border-color: #aaa; /* 可重设 */
+    text-decoration: none;
+}
+
+
+/*
+  @ 名称: 禁用中文输入法
+  @ 用法: 
+    在需要禁用的地方添加: .ime-disabled;
+*/
+
+.ime-disabled{
+    ime-mode:disabled!important;
+}
+
+
+
+/*
+  @ 名称: 强制换行
+  @ 用法: 
+    * 一般块级元素用：.as-wrap
+    * table标签中需添加：.as-wrap-table
+  @ 例子: 
+    <p class="as-wrap">…</p>
+    <table class="as-wrap as-wrap-table"></table>
+*/
+
+/* 一般 block-level 元素 */
+.as-wrap, .as-wrap td, .as-wrap th{
+    word-wrap:break-word;word-break:break-all;
+}
+
+/* table */
+.as-wrap-table{
+    table-layout:fixed;
+}
+
+
+
+/*
+  @名称: float center 
+  @用法：
+    1. 外框加上 .center-box，子元素加上 .center-item，元素就可以自动根据父元素的宽度水平居中。
+    2. 结构(例:3栏)：别忘记给每个栏加宽度
+    <ul class="center-box clearfix">
+        <li class="center-item">item1</li>
+        <li class="center-item">item2</li>
+        <li class="center-item">item3</li>
+    </ul>
+  
+*/
+
+.center-box{
+    display:block;text-align:center;
+    
+    /* 解决间隙问题 */
+    font-size:0;
+}
+.center-item{
+    display:inline-block;*display:inline;*zoom:1;
+    
+    /* 解决不能水平对齐问题 */
+    vertical-align:top;
+    
+    /* 解决间隙问题后遗症解决 */
+    font-size:13px;
+}
+
+
+
+
+
+
+/*
+  @名称: 等高栏
+  @用法：
+   - 等高栏的容器添加 .equalheight-box
+   - 子元素添加 .equalheight-item 可以实现等高
+  
+  1.布局
+    当需要的时候，如果有n栏，那么，< n 的栏都用 .fl 让它float left；第n栏，也就是最近一栏使用 .fr向右浮动
+   
+  2.等高栏
+    在需要等高的栏中，都添加.sl-equalheight 来让他们等高
+    
+  3.结构(例:3栏)：别忘记给每个栏加宽度
+    <div class="equalheight-box">
+        <div class="equalheight-item fl">...</div>
+        <div class="equalheight-item fl">...</div>
+        <div class="equalheight-item fr">...</div>
+    </div><!-- //div .equalheight-box -->
+  
+*/
+
+/* 记得更改宽度，如果页面不是960px的话 */
+.equalheight-box{
+    /*width: 960px;  /* 需重设 */
+    overflow: hidden;
+} 
+
+/* 等高 */
+.equalheight-item{
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
+}
+
+
+
+
+
+
+
+/*
+  @ 名称: 投影 | drop shadow
+  @ 用法: 添加 .shadow
+  @ 实例: 
+  
+    <div class="shadow">
+        <!-- your context to go -->
+    </div><!-- //div .shadow -->
+  
+*/
+
+.shadow{
+    /* modern web browsers */ 
+    -moz-box-shadow:1px 3px 12px #bbb;
+    -webkit-box-shadow:1px 3px 12px #bbb;
+    box-shadow:1px 3px 12px #bbb;
+    
+    /* 一定要设置background, 不然 ie 会显示在字体上 */
+    background: #fff;
+    
+    /* gte=ie8 */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Glow(color=#aaaaaa,strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=0,strength=6) progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=90,strength=10) progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=180,strength=6) progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=270,strength=6)";
+    
+    /* lte=ie7 */
+    *filter: 
+    progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=0,strength=7)
+    progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=90,strength=10)
+    progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=180,strength=10)
+    progid:DXImageTransform.Microsoft.Shadow(color=#eeeeee,direction=270,strength=7);
+}
+
+
+
+
+
+/*
+  @ 名称: 自定义 input[type=file]
+  @ 用法: 添加 class .as-file
+  @ 例子：
+    <span class="as-file">
+        <input type="button" value="点击选择图片" />
+        <input type="file" exts="png|jpg|bmp" class="as-input-file" />
+    </span>
+*/
+
+/* 基础样式 */
+.as-file{
+    position:relative;
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+    cursor:pointer;
+    overflow:hidden;
+    vertical-align:middle;
+}
+
+/* 影响 .ui-input-file 的样式 */
+.as-file .as-input-file{
+    position:absolute;
+    right:0;
+    top:0;
+    _font-size:100px; /* overwrite*/
+    _font-size:12px;
+    _zoom:10; /* overwrite */
+    height:100%;
+    _height:auto;
+    opacity:0;
+    filter:alpha(opacity=0);
+    -ms-filter:"alpha(opacity=0)";
+    cursor:pointer;
+}

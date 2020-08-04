@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3 box-shadow阴影</title>
+<link rel="stylesheet" href="../css/noreset.css">
+<link rel="stylesheet" href="css/solution.css">
+<style>
+.demo{ background:#fff; overflow:hidden;}
+.demo .box{ border:1px solid #aaa; padding:10px;}
+
+.demo p{margin-bottom:0;}
+.shadow-cave{
+    width:370px;
+    margin:0;
+    float:left;
+    position:relative;
+    box-shadow:0 10px 5px rgba(0,0,0,.3);
+}
+.shadow-cave:after{
+    position:absolute;
+    bottom:-29px;
+    left:0;
+    background:#fff;
+    width:100%;
+    height:15px;
+    content:'';
+    border-radius:50%;
+    box-shadow:0 -10px 5px #fff;
+}
+.with-image{
+    float:left;display:inline;margin-right:20px;width:auto;height:auto;border:1px solid #bbb;padding:10px; margin-bottom:30px;
+}
+
+.box-shadow{
+     box-shadow:0px 0px 10px 10px green;
+}
+.box-shadow-inset{
+     box-shadow:0px 0px 10px 10px green inset;
+}
+.test li{margin:10px 20px;width:100px;height:94px;padding:5px;border:1px solid red}
+
+
+</style>
+</head>
+<body>
+<div class="wrap">
+    <h1>box-shadow阴影</h1>
+	<p class="browser">浏览器参照基准：IE9+, Firefox4+, Chrome5+, Safari5+, Opera10.53+ </p>
+    <p>box-shadow可以设置6个值。其中4个可选；2个必须指定：分别是x轴偏移量和y轴偏移量，这2个值可以是正值，可以是负值，也可以是0，但不可以省略不写</p>
+
+    <div class="demo">
+        <h3>外部阴影：</h3>
+        <div class="box" style="box-shadow:3px 3px 10px 3px #ddd;">
+<pre class="inblock">
+.box-shadow{
+    box-shadow:3px 3px 10px 3px #ddd;
+}
+</pre>
+		</div>
+
+		<h3>内部阴影：</h3>
+        <div class="box" style="box-shadow:3px 3px 10px 3px #ddd inset;">
+<pre class="inblock">
+.box-shadow{
+    box-shadow:3px 3px 10px 3px #ddd inset;
+}
+</pre>
+		</div>
+
+		<h3>无扩展（蔓延spread）阴影：</h3>
+        <div class="box" style="box-shadow:3px 3px 10px #ddd;">
+<pre class="inblock">
+.box-shadow{
+    box-shadow:3px 3px 10px #ddd;
+}
+</pre>
+		</div>
+
+		<h3>无模糊（blur）阴影：</h3>
+        <div class="box" style="box-shadow:5px 5px #ddd;">
+<pre class="inblock">
+.box-shadow{
+    box-shadow:5px 5px #ddd;
+}
+</pre>
+		</div>
+
+		<h3>单边阴影：</h3>
+        <div class="box" style="box-shadow:0 5px 5px #ddd;">
+<pre class="inblock">
+.box-shadow{
+    box-shadow:0 5px 5px #ddd;
+}
+把某个偏移值设置为0，这时阴影的效果就只是单边的
+</pre>
+		</div>
+
+		<h3>全边阴影：</h3>
+        <div class="box" style="box-shadow:0 0 10px #aaa inset;">
+<pre class="inblock">
+.box-shadow{
+    box-shadow:0 0 10px #aaa inset;
+}
+</pre>
+		</div>
+
+		<h3>使用RGBA颜色（当然你也可以使用RGB,HSL,HSLA）的阴影：</h3>
+        <div class="box" style="box-shadow:-5px -5px rgba(0,0,0,.1);">
+<pre class="inblock">
+.box-shadow{
+    box-shadow:-5px -5px rgba(0,0,0,.1); /* 可控制透明度 */
+}
+</pre>
+		</div>
+
+		<h3>常规阴影：</h3>
+        <div class="box" style="box-shadow:-5px -5px rgba(0,0,0,.1);">
+<pre class="inblock">
+.box-shadow{
+    box-shadow:-5px -5px rgba(0,0,0,.1); /* 可控制透明度 */
+}
+</pre>
+		</div>
+    </div>
+<pre class="prettyprint linenums">
+
+</pre>
+
+	<div class="demo">
+	    <h3>凹陷阴影效果：</h3>
+		<div class="shadow-cave with-image"><img src="images/girl.jpg" width="500" alt="The cave box shadow demo"></div>
+		<div class="box shadow-cave">
+		    <h4>CSS3将开启“少图”web新时代</h4>
+			<p>利用CSS3，你的网站将能大幅度的减少功能及装饰性的图片，如特殊的按钮、倒影等等</p>
+		</div>
+    </div>
+<pre class="prettyprint linenums">
+.shadow-cave{
+    width:370px;
+    margin:0;
+    float:left;
+    position:relative;
+    box-shadow:0 10px 5px rgba(0,0,0,.3);
+}
+.shadow-cave:after{
+    position:absolute;
+    bottom:-29px;
+    left:0;
+    overflow:hidden;
+    background:#fff;
+    width:100%;
+    height:15px;
+    content:'';
+    border-radius:50%;
+    box-shadow:0 -10px 5px #fff;
+}
+.with-image{
+    float:left;display:inline;margin-right:20px;width:auto;height:auto;border:1px solid #bbb;padding:10px; margin-bottom:30px;
+}
+</pre>
+
+    <h3>box-shadow阴影的应用限制：</h3>
+	<ul>
+		<li>box-shadow内阴影无法遮住图片</li>
+	</ul>
+	<div class="demo">
+	    <h3>图片上无法实现box-shadow内阴影 <small>外层盒子的内阴影也只能在图片的下面，无法遮住图片</small></h3>
+		<ul class="test hor">
+		    <li title="li:box-shadow内阴影" class="box-shadow-inset"></li>
+		    <li title="li:box-shadow内阴影" class="box-shadow-inset"><img src="images/shahuhu.jpg" width="100"></li>
+			<li title="img:box-shadow内阴影"><img class="box-shadow-inset" src="images/shahuhu.jpg" width="100"></li>
+		    <li title="li:box-shadow外阴影" class="box-shadow"></li>
+			<li title="img:box-shadow外阴影"><img class="box-shadow" src="images/shahuhu.jpg" width="100"></li>
+		</ul>
+		<p>所以如果想用图片内阴影，暂时只能用浮层定位图片上实现了</p>
+    </div>
+
+    <p>更多：<a href="css3-box-shadow-effect.html">阴影特效</a></p>
+
+</div>
+</body>
+</html>

@@ -49,7 +49,7 @@ window.topDocument = window.top.document;
  */
 var Global = {
   //在线手册根目录，默认值
-  rootPath: "http://css.devnode.cn",
+  rootPath: "http://css.deepjs.cn",
   //是否chm浏览方式
   isLocal: /^mk:$/i.test(location.protocol),
   //是否非IE下浏览

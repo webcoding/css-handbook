@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>RGBA 与 背景透明、flash透明、iframe透明</title>
+<link rel="stylesheet" href="../css/noreset.css">
+<link rel="stylesheet" href="css/solution.css">
+<style>
+.demo{background:#fff}
+.box{padding:10px;color:#fff;}
+.box pre{color:#fff;}
+
+.hex{background-color:#000000;}
+.rgb{background-color:rgb(0,0,0);}
+.rgb-alpha{background-color:rgb(0,0,0);opacity:.5;}
+.rgba{background-color:rgba(0,0,0,.5);}
+
+.opacity{
+    position:relative;
+    z-index:3;
+    width:380px;
+    height:80px;
+    padding:20px;
+    background-color:#000;
+    color:#fff;
+    filter:alpha(opacity=60); /* For IE */
+    opacity:.6;
+}
+
+.opacity-text{
+    position:relative;
+    z-index:3;
+    width:380px;
+    height:80px;
+    padding:20px;
+    color:#fff;
+    margin-top:-120px;
+}
+.text{
+    position:relative;
+    z-index:1;
+    width:320px;
+    height:20px;
+    margin:-110px 0 0 10px;
+    padding:50px;
+    background:#f00;
+}
+
+.rgba-opacity{
+    position:relative;
+    z-index:3;
+    width:380px;
+    height:80px;
+    padding:20px;
+    background-color:rgba(0,0,0,.7);
+    color:#fff;
+}
+
+
+.text-cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.text-cover i {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    color: #fff;
+    font-style: normal;
+    text-indent: 10px;
+
+    /* 半透明核心代码 */
+    background-color: rgba(0, 0, 0, 0.5);
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#7F000000, endColorstr=#7F000000);
+}
+.text-cover:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.rgbabox {
+    margin: 10px 0;
+    border: 1px solid #fff;
+    position: relative;
+}
+.rgbabox p{
+    position: absolute;
+    z-index: 2;
+    height: 75px;
+    top: 93px;
+    font-size: 24px;
+}
+.rbox,
+.box1, .box2, .box3, .box4, .box5{
+    display: inline-block;
+    width: 15%;
+    height: 60px;
+    margin: -50px 10px 0 0;
+    padding: 20px 10px 0;
+    border: 1px solid #ddd;
+    position: relative;
+    z-index: 3;
+    font-weight: bold;
+    _margin-top: -35px;
+}
+
+.rbox {
+    border-color: #fff;
+    z-index: 1;
+    height: 35px;
+    background: url(images/pencil.jpg) top center no-repeat;
+}
+.rgbabox .rbox {
+    margin-top: 0;
+}
+
+.box1 { background-color: rgba(255, 255, 255, .8); filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#ccffffff, endColorstr=#ccffffff); }
+.box2 { background-color: rgba(  0,   0,   0, .5); filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#7f000000, endColorstr=#7f000000); color: #fff;}
+.box3 { background-color: rgba(255,   0,   0, .4); filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#66ff0000, endColorstr=#66ff0000); }
+.box4 { background-color: rgba(  0, 255,   0, .3); filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#4c0ff000, endColorstr=#4c00ff00); }
+.box5 { background-color: rgba(  0,   0, 255, .2); filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#330000ff, endColorstr=#330000ff); }
+
+/*
+ _background: #fff;
+ _background: #000;
+ _background: #f00;
+ _background: #0f0;
+ _background: #00f;
+
+*/
+
+</style>
+</head>
+<body>
+<div class="wrap">
+    <h1>RGBA 与 背景透明、flash透明</h1>
+    <p class="browser">RGBA-浏览器参照基准：IE9+, Firefox3.6+, Chrome5+, Safari5+, Opera10.53+ </p>
+    <p>语法：rgba(0-255,0-255,0-255,0-1)</p>
+
+    <div class="demo">
+        <h3>HEX颜色中的黑色：</h3>
+        <div class="box hex"><pre class="inblock">background-color:#000000;</pre></div>
+        <h3>RGB颜色中的黑色：</h3>
+        <div class="box rgb"><pre class="inblock"></pre>background-color:rgb(0,0,0);</div>
+        <h3>RGB颜色+opacity透明度(50%透明度的黑色)：</h3>
+        <div class="box rgb-alpha"><pre class="inblock">background-color:rgb(0,0,0);
+opacity:.5;</pre></div>
+        <h3>RGBA颜色(50%透明度的黑色)：</h3>
+        <div class="box rgba"><pre class="inblock">background-color:rgba(0,0,0,.5);</pre></div>
+    </div>
+    <p class="browser">背景透明-浏览器参照基准：IE, Firefox3.6+, Chrome5+, Safari5+, Opera10.53+ </p>
+    <div class="demo">
+        <h3>效果演示：<small>error</small></h3>
+        <div class="opacity">这是一个不成功的背景透明内容不透明效果，你会看到背景及内容两者都透明了</div>
+        <div class="text">将内容和背景分别放到不同的层，然后将背景设置成透明，两者就互不相关了</div>
+
+        <h3>效果演示：<small>success</small></h3>
+        <div class="opacity"></div>
+        <div class="opacity-text">这是一个在所有主流浏览器下都可以看到的背景透明，内容不透明的效果</div>
+        <div class="text">将内容和背景分别放到不同的层，然后将背景设置成透明，两者就互不相关了</div>
+
+        <h3>效果演示：<small>RGBA</small></h3>
+        <div class="rgba-opacity">这是一个用RGBA实现的背景透明内容不透明的效果</div>
+        <div class="text">直接用RGBA值作为背景色</div>
+    </div>
+<pre class="prettyprint linenums">
+.opacity{
+    position:relative;
+    z-index:3;
+    width:380px;
+    height:80px;
+    padding:20px;
+    background-color:#000;
+    color:#fff;
+    filter:alpha(opacity=60); /* For IE */
+    opacity:.6;
+}
+
+.opacity-text{
+    position:relative;
+    z-index:3;
+    width:380px;
+    height:80px;
+    padding:20px;
+    color:#fff;
+    margin-top:-120px;
+}
+.text{
+    position:relative;
+    z-index:1;
+    width:320px;
+    height:20px;
+    margin:-110px 0 0 10px;
+    padding:50px;
+    background:#f00;
+}
+
+.rgba-opacity{
+    position:relative;
+    z-index:3;
+    width:380px;
+    height:80px;
+    padding:20px;
+    background-color:rgba(0,0,0,.7);
+    color:#fff;
+}
+</pre>
+    <h3>最新式的半透明效果实现</h3>
+    <p>推荐的半透明实现方法，简单易用！</p>
+    <div class="demo">
+        <div class="relative" style="width:300px;height:200px;">
+            <a href="###" class="text-cover">
+                <img src="images/girl.jpg" alt="" width="300" height="200" />
+                <i>具有半透明背景的文字，文字过长也不要紧的哦，布局良好！</i>
+            </a>
+        </div>
+    </div>
+<pre class="prettyprint linenums">
+.text-cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.text-cover i {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    color: #fff;
+    font-style: normal;
+    text-indent: 10px;
+    /* 此种缩进实现边距，针对单行文本甚是有效，多行则不行，可通过 padding: 0 10px 来设置，
+    注意右侧文本不要贴边，如此100%的宽度会溢出，需在父层设置 overflow: hidden; */
+
+    /* 半透明核心代码 */
+    background-color: rgba(0, 0, 0, 0.5);
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#7F000000, endColorstr=#7F000000);
+    /* 此处的 */
+}
+
+说明：#88000000 的前两位数字控制透明度，取值16进制从00 -> FF（越小越透明），00表示完全透明，FF就是全不透明，后面六位是色值。
+</pre>
+
+    <h4>知识扩展：</h4>
+    <p>DXImageTransform.Microsoft.gradient 滤镜里的 startColorstr 参数值是 #AARRGGBB 形式的， 其中的AA是代表不透明度的十六进制，00表示完全透明，FF就是全不透明，化成十进制的范围就是0~255，剩下的 RRGGBB 就是颜色的十六进制代码。</p>
+    <p>举例如：background: rgba(125, 0, 0, .3); 表示的是30%不透明度的红色背景。把30%的不透明度转换成十六制呢的方法如下：先计算#AA的的十进制x，x/255 = 3/10，解得x=3*255/10，然后再把x换算成十六进制，约等于4C。 </p>
+
+    <h4>常用透明度对用关系：</h4>
+    <p style="font-family: courier new">
+    .0（00） .1（19） .05（0C） .15（26） <br>
+    .2（33） .3（4C） .25（3F） .35（59） <br>
+    .4（66） .5（7F） .45（72） .55（8C） <br>
+    .6（99） .7（B2） .65（A5） .75（BF） <br>
+    .8（CC） .9（E5） .85（D8） .95（F2）
+    </p>
+    <div class="demo">
+        <p><button class="btn test">交互时的滤镜问题</button> 显示隐藏有透明度变化时，IE8-下的滤镜透明有时出问题(待进一步研究)，设置时间为0可解决</p>
+        <div class="rgbabox">
+            <p>全兼容半透明测试，五种颜色及透明度。设置背景图片作为陪衬对比，增强浏览效果。</p>
+            <span class="rbox"></span>
+            <span class="rbox"></span>
+            <span class="rbox"></span>
+            <span class="rbox"></span>
+            <span class="rbox"></span>
+            <span class="box1">颜色：白<br>透明度：.8 #CC</span>
+            <span class="box2">颜色：黑<br>透明度：.5 #7F</span>
+            <span class="box3">颜色：红<br>透明度：.4 #66</span>
+            <span class="box4">颜色：绿<br>透明度：.3 #4C</span>
+            <span class="box5">颜色：蓝<br>透明度：.2 #33</span>
+        </div>
+    </div>
+<pre class="prettyprint linenums">
+.box1 { background-color: rgba(255, 255, 255, .8);
+filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF); }
+.box2 { background-color: rgba(  0,   0,   0, .5);
+filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#7F000000, endColorstr=#7F000000); color: #fff;}
+.box3 { background-color: rgba(255,   0,   0, .4);
+filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#66FF0000, endColorstr=#66FF0000); }
+.box4 { background-color: rgba(  0, 255,   0, .3);
+filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#4C00FF00, endColorstr=#4C00FF00); }
+.box5 { background-color: rgba(  0,   0, 255, .2);
+filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#330000FF, endColorstr=#330000FF); }
+
+针对Win7下的IEtester中IE6不透明，可在滤镜前单独设置 _background 色，如下：
+.box5 {
+    background-color: rgba(  0,   0, 255, .2);
+    _background: #00f;
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#330000ff, endColorstr=#330000ff);
+}
+但事实上，原生的IE6是支持的，无需单独设置 _background 色。
+</pre>
+
+    <h3>问题及注意事项：</h3>
+    <p>今天(2014-01-06)注意到一个问题，IE中使用如上滤镜方法，若有显示隐藏的交互时，不能有渐变透明度的变化，即透明度变化时间大于0，有时出问题，可能是页面比较大的情况下。做测试如上：</p>
+</div>
+<script src="http://pic.lvmama.com/js/new_v/jquery-1.7.2.min.js"></script>
+<script>
+$(function(){
+    $(".test").click(function(){
+        if($(".box2").css("display") == "inline-block"){
+            $(".box2").fadeOut(500);
+        } else{
+            $(".box2").fadeIn(500);
+        }
+    })
+})
+</script>
+</body>
+</html>
