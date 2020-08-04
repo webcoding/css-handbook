@@ -226,7 +226,6 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
 #box3 li:nth-child(2){-webkit-flex:1 2 400px;flex:1 2 400px;}
 #box3 li:nth-child(3){-webkit-flex:1 2 400px;flex:1 2 400px;}
 
-
 .flex-grid{
   display: flex;
   list-style: none;
@@ -290,6 +289,21 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
 }
 .placeholder:before{
   content: 'Flex';
+}
+
+.box3 { width: 600px; margin: 20px 0; border: 20px solid rgba(0,0,255,0.3);}
+.box4 { margin: 20px 0; border: 20px solid rgba(0,255,255,0.3);}
+.inline-flex {display: inline-flex;}
+.flex-1 {flex: 1;}
+.flex-shrink {flex-shrink: 0;}
+.left {background: rgba(255,0,0,0.1); flex: 1;}
+.left2 {background: rgba(255,0,0,0.1); overflow: hidden;}
+.right {background: rgba(0,255,0,0.1); width: 50px;}
+.max-line-1 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
 }
 </style>
 </head>
@@ -414,7 +428,75 @@ h1{font:bold 20px/1.5 georgia,simsun,sans-serif;}
     <div>
       <div class="placeholder"></div>
     </div>
-  </div>
+	</div>
+</div>
+
+<h2>测试 flex 自适应宽度</h2>
+
+<div class="box3 flex">
+	<div class="left max-line-1">1 过长显示点点点 这个标题很长要自适应宽度，这个标题很长要自适应宽度，这个标题很长要自适应宽度</div>
+	<div class="right flex-shrink">不压缩</div>
+</div>
+
+<div class="box3 flex">
+	<div class="left box4 flex">
+		<div class="left max-line-1">
+			2 过长显示点点点 双层嵌套 这个标题很长要自适应宽度，这个标题很长要自适应宽度，这个标题很长要自适应宽度
+		</div>
+		<div class="right flex-shrink">不压缩</div>
+	</div>
+	<div class="right flex-shrink">不压缩</div>
+</div>
+
+<div class="box3 flex">
+	<div class="left2 box4 flex flex-1">
+		<div class="left max-line-1">
+			3 过长显示点点点 双层嵌套 这个标题很长要自适应宽度，这个标题很长要自适应宽度，这个标题很长要自适应宽度
+		</div>
+		<div class="right flex-shrink">不压缩</div>
+	</div>
+	<div class="right flex-shrink">不压缩</div>
+</div>
+<div class="box3 flex" style="margin: 20px;">
+	<div class="left2 box4 flex flex-1">
+		<div class="left max-line-1">
+			4 过长显示点点点 双层嵌套 这个标题很长要自适应宽度，这个标题很长要自适应宽度，这个标题很长要自适应宽度
+		</div>
+		<div class="right flex-shrink">不压缩</div>
+	</div>
+	<div class="right flex-shrink">不压缩</div>
+</div>
+
+<!-- 没强制不换行没问题 -->
+<div class="box3 flex">
+	<div class="left">1 默认一层嵌套没问题 这个标题很长要自适应宽度，这个标题很长要自适应宽度，这个标题很长要自适应宽度</div>
+	<div class="right flex-shrink">不压缩</div>
+</div>
+
+<div class="box3 flex">
+	<div class="left">
+		<div class="box4">2 这个标题很长要自适应宽度，这个标题很长要自适应宽度，这个标题很长要自适应宽度</div>
+	</div>
+	<div class="right flex-shrink">不压缩</div>
+</div>
+
+<div class="box3 flex">
+	<div class="left box4 flex">
+		<div class="left">3 双层嵌套 这个标题很长要自适应宽度，这个标题很长要自适应宽度，这个标题很长要自适应宽度</div>
+		<div class="right flex-shrink">不压缩</div>
+	</div>
+	<div class="right flex-shrink">不压缩</div>
+</div>
+
+<div class="box3 flex">
+	<div class="left box4 flex">
+		<div class="left box4 flex">
+			<div class="left">4 多层嵌套 这个标题很长要自适应宽度，这个标题很长要自适应宽度，这个标题很长要自适应宽度</div>
+			<div class="right flex-shrink">不压缩</div>
+		</div>
+		<div class="right flex-shrink">不压缩</div>
+	</div>
+	<div class="right flex-shrink">不压缩</div>
 </div>
 
 </body>
