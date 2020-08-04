@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>跨浏览器线性渐变</title>
+<link rel="stylesheet" href="../css/noreset.css">
+<link rel="stylesheet" href="css/solution.css">
+<style>
+.demo{background:#fff;}
+
+span.as-rc-cnt{
+    padding:0 10px;height:30px;line-height: 30px;color:#333;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#e3e3e3));
+    background: -moz-linear-gradient(top,  #fefefe,  #e3e3e3);
+    background: -ms-linear-gradient(top, #fefefe,  #e3e3e3);
+    background: -o-linear-gradient(left, #fefefe, #e3e3e3);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe', endColorstr='#e3e3e3');
+    background: linear-gradient(#fefefe, #e3e3e3);
+}
+a.as-rc-wrap:hover{border-color:#d1d1d1;}
+a.as-rc-wrap:hover .as-rc-cnt{
+    border-color: #d1d1d1;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e3e3e3));
+    background: -moz-linear-gradient(top,  #fff,  #e3e3e3);
+    background: -ms-linear-gradient(top, #ffffff,  #e3e3e3);
+    background: -o-linear-gradient(top, #fff, #e3e3e3);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e3e3e3');
+    background: linear-gradient(#fff, #e3e3e3);
+}
+
+.linearbox{
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dddddd));
+    background: -moz-linear-gradient(top,  #fff,  #dddddd);
+    background: -ms-linear-gradient(top, #ffffff,  #e3e3e3);
+    background: -o-linear-gradient(top, #fff, #dddddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dddddd');
+    background: linear-gradient(to bottom, #fff, #dddddd);
+    /* 原 background: linear-gradient(top, #fff, #dddddd);的写法不正确，w3c的标准(应为to bottom 或缺省) */
+}
+
+.linearbox .as-rc-cnt{
+    padding:20px;
+}
+.linearbox{
+    width: 400px;
+}
+
+
+div.linear {
+    width:200px;
+    height:100px;
+    margin-top:10px;
+    border:1px solid #ddd;
+}
+
+.test{
+    background:-moz-linear-gradient(#fff,#333);
+    background:-webkit-gradient(linear,center top,center bottom,from(#fff),to(#333));
+    background:-webkit-linear-gradient(#fff,#333);
+    background:-o-linear-gradient(#fff,#333);
+    background:-ms-linear-gradient(#fff,#333);
+    background:linear-gradient(#fff,#333);
+}
+.test2{
+    background:-moz-linear-gradient(#000,#f00 50%,#090);
+    background:-webkit-gradient(linear,center top,center bottom,from(#000),color-stop(.5,#f00),to(#090));
+    background:-webkit-linear-gradient(#000,#f00 50%,#090);
+    background:-o-linear-gradient(#000,#f00 50%,#090);
+    background:-ms-linear-gradient(#000,#f00 50%,#090);
+    background:linear-gradient(#000,#f00 50%,#090);
+}
+.test3{
+    background:-moz-linear-gradient(left center,#000 20%,#f00 50%,#090 80%);
+    background:-webkit-gradient(linear,left center,right center,color-stop(.2,#000),color-stop(.5,#f00),color-stop(.8,#090));
+    background:-webkit-linear-gradient(0deg,#000 20%,#f00 50%,#090 80%);
+    background:-o-linear-gradient(0deg,#000 20%,#f00 50%,#090 80%);
+    background:-ms-linear-gradient(0deg,#000 20%,#f00 50%,#090 80%);
+    background:linear-gradient(0deg,#000 20%,#f00 50%,#090 80%);
+}
+.test4{
+    background:-moz-linear-gradient(45deg,#000,#f00 50%,#090);
+    background:-webkit-gradient(linear,left bottom,right top,from(#000),color-stop(.5,#f00),to(#090));
+    background:-webkit-linear-gradient(45deg,#000,#f00 50%,#090);
+    background:-o-linear-gradient(45deg,#000,#f00 50%,#090);
+    background:-ms-linear-gradient(45deg,#000,#f00 50%,#090);
+    background:linear-gradient(45deg,#000,#f00 50%,#090);
+}
+
+.test2, .test3, .test4 {
+    color: #fff;
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+    <h1>跨浏览器线性渐变</h1>
+    <p>代码不好看，但兼容所有<a href="#grade-browsers" title="A-Grade是什么？">A-Grade浏览器</a>：</p>
+
+
+    <div class="demo">
+        <p>
+        	<a href="#" class="as-rc">
+        		<span class="as-rc-cnt">button</span>
+        	</a>
+    	</p>
+        <div class="linearbox as-rc">
+            <div class="as-rc-cnt">
+            花开了，会有凋谢的一天；星星是璀璨的，也会有消失光芒的一天。这个地球，太阳，这个银河系，甚至连整个宇宙，都有死亡的时候。人的一生和这些相比，不过是一眨眼那么短暂而已。就在那样一个瞬间，人们诞生、欢笑、流泪、战斗、受伤、欢喜、悲伤……憎恨某人，爱上某人，一切的一切，都只是刹那间的邂逅。终究将归入死的永眠。
+            </div>
+        </div>
+
+
+        <div class="linear test">test</div>
+        <div class="linear test2">test2</div>
+        <div class="linear test3">test3</div>
+        <div class="linear test4">test4</div>
+    </div>
+<pre class="prettyprint linenums">
+.linearbox{
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dddddd));
+    background: -moz-linear-gradient(top,  #fff,  #dddddd);
+    background: -ms-linear-gradient(top, #ffffff,  #e3e3e3);
+    background: -o-linear-gradient(top, #fff, #dddddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dddddd');
+    background: linear-gradient( #fff, #dddddd);
+    /* 原 background: linear-gradient(top, #fff, #dddddd);的写法(添加top)不被浏览器支持 */
+}
+
+.test{
+    background:-moz-linear-gradient(#fff,#333);
+    background:-webkit-gradient(linear,center top,center bottom,from(#fff),to(#333));
+    background:-webkit-linear-gradient(#fff,#333);
+    background:-o-linear-gradient(#fff,#333);
+    background:-ms-linear-gradient(#fff,#333);
+    background:linear-gradient(#fff,#333);
+}
+
+.test2{
+    background:-moz-linear-gradient(#000,#f00 50%,#090);
+    background:-webkit-gradient(linear,center top,center bottom,from(#000),color-stop(.5,#f00),to(#090));
+    background:-webkit-linear-gradient(#000,#f00 50%,#090);
+    background:-o-linear-gradient(#000,#f00 50%,#090);
+    background:-ms-linear-gradient(#000,#f00 50%,#090);
+    background:linear-gradient(#000,#f00 50%,#090);
+}
+
+.test3{
+    background:-moz-linear-gradient(left center,#000 20%,#f00 50%,#090 80%);
+    background:-webkit-gradient(linear,left center,right center,color-stop(.2,#000),color-stop(.5,#f00),color-stop(.8,#090));
+    background:-webkit-linear-gradient(0deg,#000 20%,#f00 50%,#090 80%);
+    background:-o-linear-gradient(0deg,#000 20%,#f00 50%,#090 80%);
+    background:-ms-linear-gradient(0deg,#000 20%,#f00 50%,#090 80%);
+    background:linear-gradient(0deg,#000 20%,#f00 50%,#090 80%);
+}
+
+.test4{
+    background:-moz-linear-gradient(45deg,#000,#f00 50%,#090);
+    background:-webkit-gradient(linear,left bottom,right top,from(#000),color-stop(.5,#f00),to(#090));
+    background:-webkit-linear-gradient(45deg,#000,#f00 50%,#090);
+    background:-o-linear-gradient(45deg,#000,#f00 50%,#090);
+    background:-ms-linear-gradient(45deg,#000,#f00 50%,#090);
+    background:linear-gradient(45deg,#000,#f00 50%,#090);
+}
+
+
+</pre>
+
+	<h3>问题及注意事项：</h3>
+    <ul>
+    	<li>没有现成的 class 提供样式 | 记得 ie 的 color 要写全6位，不然显示不正常</li>
+    	<li>Sass版中使用: @include background(linear-gradient(top, #fff, #dddddd)); <a target="_blank" href="http://beta.compass-style.org/examples/compass/css3/gradient/">Demo</a> </li>
+    	<li>Demo 引用了1px圆角，在实际项目中只能使用二梯度二色线性渐变，多梯度渐变请暂时不要使用。
+    		<ul>
+    			<li>二梯度渐变生成器：<a target="_blank" href="http://css3please.com/">在线二梯度渐变生成器</a>。</li>
+ 				<li>在内部产品可以使用多梯度渐变：<a target="_blank" href="http://www.colorzilla.com/gradient-editor/">在线多梯度渐变</a></li>
+    		</ul>
+    	</li>
+    </ul>
+
+    <h3 id="grade-browsers">A-Grade是什么？</h3>
+    <p>A级浏览器A-Grade browsers是YUI对浏览器的一个等级划分。</p>
+    <ul>
+		<li>A级浏览器是完整支持并测试过的，所有的Yahoo应用程序都要保证能在这些浏览器上工作。</li>
+		<li>X浏览器是Yahoo已知的A级浏览器，但尚未有能力对其充分测试，或一个以前未曾出现过的新浏览器。给X级浏览器提供的内容是和A级一样的，希望他们能处理好这些比较高级(复杂)的内容。</li>
+		<li>C浏览器通常称作”不好”的浏览器，他们不支持哪些运行Yahoo应用程序必须的特性，给这些浏览器提供的功能性应用程序内容应该不包含JavaScript，因为Yahoo的应用程序都是完全分离的(即在不含JavaScript的情形下仍能工作)。</li>
+	</ul>
+	<p>关于浏览器等级划分，查看<a target="_blank" href="http://yuilibrary.com/yui/docs/tutorials/gbs/#the-three-grades">Yahoo Yui 官网信息</a> </p>
+
+</div>
+
+<!--以下修复IE6使之支持png透明(必须放到html页面中)，可自定义设置标签或class -->
+
+<!--[if ie 6]>
+<script src="../assets/js/DD_belatedPNG-min.js"></script>
+<script>DD_belatedPNG.fix('.ie6png');</script>
+<![endif]-->
+</body>
+</html>

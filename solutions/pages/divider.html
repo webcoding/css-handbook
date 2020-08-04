@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>分隔线</title>
+<link rel="stylesheet" href="../css/noreset.css">
+<link rel="stylesheet" href="css/solution.css">
+<style>
+.demo{background:#fff;}
+
+/* 定值border,适应性差 */
+.line_01{
+    padding: 0 20px 0;
+    margin:30px auto;
+    line-height: 1px;
+    border-left: 350px solid #ddd;
+    border-right: 350px solid #ddd;
+    text-align: center;
+}
+/* 适应性差最好,设置最为简单 */
+.line_02{
+    height: 1px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+	margin:30px auto;
+}
+.line_02 span{
+    position: relative;
+    top: -12px;
+    background: #fff;
+    padding:10px 30px;
+}
+
+.line_03{
+    width:600px;
+	margin:20px auto;
+}
+.line_03 b{
+    background: #ddd;
+    margin-top: 4px;
+    display: inline-block;
+    width: 180px;
+    height: 1px;
+    _overflow: hidden;
+    vertical-align: middle;
+}
+.line_03 span{
+    display: inline-block;
+    width: 220px;
+    vertical-align: middle;
+text-align: center;
+}
+.line_04{
+    width:60%;
+    min-width:600px;
+	margin:20px auto;
+}
+.line_04{
+    overflow: hidden;
+    _zoom: 1;
+}
+.line_04 b{
+    background: #ddd;
+    margin-top: 12px;
+    float: left;
+    width: 30%;
+    height: 1px;
+    _overflow: hidden;
+}
+.line_04 span{
+    padding: 0 10px;
+    width: 36%;
+	min-width: 180px;
+    float: left;
+    text-align: center;
+}
+.line_05{
+    letter-spacing: -1px;
+    color: #ddd;
+	text-align: center;
+	margin: 20px auto;
+}
+.line_05 span{
+    letter-spacing: 0;
+    color: #222;
+    margin:0 20px;
+}
+
+.aside{width:300px;}
+.sidebox{border:1px solid #ddd;padding:10px 20px;}
+.side-title{ background:#e9e9e9;border-left:3px solid #e38;height:16px;}
+.side-title span{display:inline-block;padding:0 10px;background:#fff;position:relative;top:-2px;}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+    <h1>分隔线</h1>
+    <p>CSS巧妙实现分隔线的几种方法</p>
+
+    <div class="demo">
+	<h3>小小分隔线 <small>推荐第二种</small></h3>
+	<div class="box">
+<div class="line_01">小小分隔线 单标签实现</div>
+<div class="line_02"><span>小小分隔线 巧用色实现</span></div>
+<div class="line_03"><b></b><span>小小分隔线 inline-block实现</span><b></b></div>
+<div class="line_04"><b></b><span>小小分隔线 浮动来实现</span><b></b></div>
+<div class="line_05">———————————<span>小小分隔线 字符来实现</span>————————————</div>
+
+<div class="aside">
+	<div class="sidebox">
+		<div class="side-title"><span>驴妈妈精品推荐</span></div>
+		<ul>
+			<li>巧用背景边框</li>
+			<li>产品列表</li>
+			<li>产品列表</li>
+			<li>产品列表</li>
+		</ul>
+	</div>
+</div>
+
+        </div>
+    </div>
+<pre class="prettyprint linenums">
+
+</pre>
+    <h3>问题及注意事项：</h3>
+    <p>实践出真知</p>
+
+</div>
+</body>
+</html>
